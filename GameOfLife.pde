@@ -1,5 +1,7 @@
 import de.bezier.guido.*;
 //Declare and initialize constants NUM_ROWS and NUM_COLS = 20
+public final static int NUM_ROWS=20;
+public final static int NUM_COLS=20;
 private Life[][] buttons; //2d array of Life buttons each representing one cell
 private boolean[][] buffer; //2d array of booleans to store state of buttons array
 private boolean running = true; //used to start and stop program
@@ -11,7 +13,12 @@ public void setup () {
   Interactive.make( this );
 
   //your code to initialize buttons goes here
-
+  buttons=new Life[NUM_ROWS][NUM_COLS];
+  for(int n=0;n<NUM_ROWS;n++){
+    for(int m=0;m<NUM_COLS;m++){
+      buttons[n][m]=new Life(NUM_ROWS,NUM_COLS);
+    }
+  }
   //your code to initialize buffer goes here
 }
 
@@ -22,7 +29,7 @@ public void draw () {
   copyFromButtonsToBuffer();
 
   //use nested loops to draw the buttons here
-
+  
   copyFromBufferToButtons();
 }
 
@@ -55,8 +62,8 @@ public class Life {
   private boolean alive;
 
   public Life (int row, int col) {
-    // width = 400/NUM_COLS;
-    // height = 400/NUM_ROWS;
+    width = 400/NUM_COLS;
+    height = 400/NUM_ROWS;
     myRow = row;
     myCol = col; 
     x = myCol*width;

@@ -29,7 +29,11 @@ public void draw () {
   copyFromButtonsToBuffer();
 
   //use nested loops to draw the buttons here
-  
+  for(int n=0;n<NUM_ROWS;n++){
+    for(int m=0;m<NUM_COLS;m++){
+      buttons[n][m].draw();
+    }
+  }
   copyFromBufferToButtons();
 }
 
